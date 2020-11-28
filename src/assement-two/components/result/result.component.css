@@ -1,0 +1,13 @@
+.custom-size{
+    width: 150px;
+    height:150px;
+}
+.card-body {
+    padding: 0;
+    }
+    .list-group {
+        border-radius: 0;
+    }
+    .list-group-item:hover {
+        cursor: pointer;
+    }

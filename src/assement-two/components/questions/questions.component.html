@@ -1,0 +1,48 @@
+<div class="container" *ngIf="assessmentService.questions && assessmentService.questionProgress != 15">
+    <h1 class="h3 mb-3 font-weight-normal text-center mt-5">Assignment 2</h1>
+    <div class="row mt-2">
+        <div class="col-12">
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped" role="progressbar"
+                    [style.width.%]="(assessmentService.questionProgress+1)*progressBarSplit" aria-valuemin="0"
+                    aria-valuemax="100"></div>
+            </div>
+        </div>
+    </div>
+    <div class="float-right">{{assessmentService.questionProgress+1}}/{{assessmentService.questions.length}}</div><br>
+    <div class="row mt-4">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    {{assessmentService.questionProgress+1}}.
+                    {{assessmentService.questions[assessmentService.questionProgress].qnName}}
+                </div>
+                <div class="card-body">
+                    <div class="list-group" id="list-tab" role="tablist">
+                        <ng-container
+                            *ngFor="let option of assessmentService.questions[assessmentService.questionProgress].options;let i = index">
+                            <a id="i" class="list-group-item list-group-item-action"
+                                [ngClass]="{'active': selectedItem == option}"
+                                (click)="selectAnswer(i+1,assessmentService.questions[assessmentService.questionProgress].qnId,option)">{{option}}</a>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row mt-2 button-box">
+        <div class="col-3"></div>
+        <div class="col-3">
+            <button type="button" class="btn btn-md btn-primary custom-btn" [disabled]="disableNext"
+                *ngIf="!(assessmentService.questionProgress+1 == 15)" (click)="goToNextQuetion()" #next>Next</button>
+        </div>
+        <div class="col-3">
+            <button type="button" class="btn btn-md btn-primary custom-btn"
+                [disabled]="!assessmentService.questions[assessmentService.questionProgress].choosenAnswer"
+                (click)="onSubmitResponse()" #submit>Submit</button>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>

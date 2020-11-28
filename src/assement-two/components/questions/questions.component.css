@@ -1,0 +1,22 @@
+.button-box {
+    text-align:center;
+    margin-top:20px;
+   }
+button.custom-btn{
+       width: 10rem;
+   }  
+
+.card-body {
+    padding: 0;
+    }
+    .list-group {
+        border-radius: 0;
+    }
+    .list-group-item:hover {
+        cursor: pointer;
+    }
+@media (max-width:600px){
+    button.custom-btn{
+           width: 5rem;
+       }
+}

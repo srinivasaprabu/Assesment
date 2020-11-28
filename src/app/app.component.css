@@ -1,0 +1,10 @@
+.header{
+    color: white;padding:1em;width: 100%;background-color: black;
+}
+.custom-pointer{
+    cursor: pointer;
+}
+.custom-pointer:active, .custom-pointer:focus,.custom-pointer::selection {
+    outline: none !important;
+    border: none !important;
+  }

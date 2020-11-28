@@ -1,0 +1,55 @@
+<div class="container">
+    <h1 class="h1 mb-3 font-weight-bold text-center mt-5">Completed...!!!</h1>
+    <div class="card">
+        <img class="card-img-top custom-size align-self-center" src="assets/icons/trophy.png" alt="Card image cap">
+        <div class="card-body">
+            <h3 class="text-center">{{assessmentService.correctAnswerCount}}/{{assessmentService.questionProgress+1}}
+            </h3>
+            <button type="button" class="btn btn-success float-right mb-3 mr-3" (click)="restart()">Restart</button><br>
+        </div>
+    </div>
+    <h3>Questions with correct answer</h3> <span data-toggle="modal" data-target="#analytics">Analytics</span>
+    <ng-container *ngFor="let question of assessmentService.questions;let i=index">
+        <div class="card mt-5 mb-5">
+            <div class="card-header">
+                {{i+1}}.
+                {{assessmentService.questions[assessmentService.questionProgress].qnName}}
+            </div>
+            <div class="card-body">
+                <div class="list-group" id="list-tab" role="tablist">
+                    <ng-container *ngFor="let option of question.options;let j = index">
+                        <a id="i" class="list-group-item list-group-item-action">{{option}}
+                            <span class="badge badge-pill badge-success float-right"
+                                *ngIf="question.correctAnswer==j+1">✓</span>
+                            <span class="badge badge-pill badge-danger float-right"
+                                *ngIf="question.choosenAnswer==j+1  && question.correctAnswer!=j+1">X</span>
+
+                        </a>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+
+    <div class="modal fade" id="analytics" role="dialog" style="padding-top: 100px">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" align="center">
+                    <h3>Analytics</h3>
+                    <div class="float-right">
+                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                            style="align-content:flex-end">X</button>
+                    </div>
+                </div>
+                <div class="modal-body" align="center">
+                    <p-chart type="pie" [data]="pieChartdata"></p-chart>
+                </div>
+                <div class="modal-footer">
+                    <h3 class="text-center">Total =
+                        {{assessmentService.correctAnswerCount}}/{{assessmentService.questionProgress+1}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

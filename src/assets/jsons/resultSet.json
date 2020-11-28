@@ -1,0 +1,62 @@
+[
+    {
+        "qnId": 1,
+        "correctAnswer": 2
+    },
+    {
+        "qnId": 2,
+        "correctAnswer": 2
+    },
+    {
+        "qnId": 3,
+        "correctAnswer": 3
+    },
+    {
+        "qnId": 4,
+        "correctAnswer": 4
+    },
+    {
+        "qnId": 5,
+        "correctAnswer": 4
+    },
+    {
+        "qnId": 6,
+        "correctAnswer": 3
+    },
+    {
+        "qnId": 7,
+        "correctAnswer": 1
+    },
+    {
+        "qnId": 8,
+        "correctAnswer": 1
+    },
+    {
+        "qnId": 9,
+        "correctAnswer": 2
+    },
+    {
+        "qnId": 10,
+        "correctAnswer": 4
+    },
+    {
+        "qnId": 11,
+        "correctAnswer": 3
+    },
+    {
+        "qnId": 12,
+        "correctAnswer": 1
+    },
+    {
+        "qnId": 13,
+        "correctAnswer": 1
+    },
+    {
+        "qnId": 14,
+        "correctAnswer": 2
+    },
+    {
+        "qnId": 15,
+        "correctAnswer": 1
+    }
+]

@@ -1,0 +1,50 @@
+<div class="container">
+    <form class="form-cal" [formGroup]="mathForm">
+        <h1 class="h3 mb-3 font-weight-normal text-center mt-5">Assignment 1</h1>
+        <input type="number" class="form-control mt-2" name="inputone" formControlName="inputone" autocomplete="off"
+            [ngClass]="((mathForm.get('inputone').touched  || mathForm.get('inputone').dirty) && (mathForm.get('inputone').invalid || mathForm.get('inputone').hasError('pattern')))?'invalid':''">
+
+        <div *ngIf="mathForm.get('inputone').touched || mathForm.get('inputone').dirty">
+            <div *ngIf="mathForm.get('inputone').invalid" style="color:red">
+                <div *ngIf="mathForm.get('inputone').hasError('required')">
+                    Please enter value
+                </div>
+                <div *ngIf="mathForm.get('inputone').hasError('pattern')">
+                    Please enter valid input
+                </div>
+                <div *ngIf="mathForm.get('inputone').hasError('max')">
+                    Please enter maximum of 999
+                </div>
+            </div>
+        </div>
+
+
+        <input type="number" class="form-control mt-2" name="inputtwo" formControlName="inputtwo" autocomplete="off"
+            [ngClass]="((mathForm.get('inputtwo').touched  || mathForm.get('inputtwo').dirty) && (mathForm.get('inputtwo').invalid || mathForm.get('inputtwo').hasError('pattern')))?'invalid':''">
+
+        <div *ngIf="mathForm.get('inputtwo').touched || mathForm.get('inputtwo').dirty">
+            <div *ngIf="mathForm.get('inputtwo').invalid" style="color:red">
+                <div *ngIf="mathForm.get('inputtwo').hasError('required')">
+                    Please enter value
+                </div>
+                <div *ngIf="mathForm.get('inputtwo').hasError('pattern')">
+                    Please enter valid input
+                </div>
+                <div *ngIf="mathForm.get('inputtwo').hasError('max')">
+                    Please enter maximum of 999
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-6">
+                <button type="button" class="btn btn-md btn-primary btn-block" [disabled]="mathForm.invalid"
+                    (click)="calculateOutput()" #submit>Calculate</button>
+            </div>
+            <div class="col-6">
+                <button type="button" class="btn btn-md btn-primary btn-block" (click)="clearForm()" #clear>Clear</button>
+            </div>
+        </div>
+
+    </form>
+</div>
